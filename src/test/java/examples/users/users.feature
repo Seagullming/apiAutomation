@@ -46,13 +46,13 @@ Feature: Trial test suite
               karate.log("Expected: 2x larger image");
               return false;
             }
-            else if(stringCheck.contains("Gallery"))
+            else if(stringCheck.contains("2x larger image"))
             {
               karate.log("Expected string \" 2x larger image\" is included");
               return true;
             }
          }
-         else if(response.Promotions[i].Name != "Feature Combo")
+         else if(response.Promotions[i].Name != "Gallery")
          {
             continue;
          }
