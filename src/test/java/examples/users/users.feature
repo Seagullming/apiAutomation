@@ -24,7 +24,7 @@ Feature: Trial test suite
     And match response.CanRelist == true
 
   @test:1003
-  Scenario: Sending request and
+  Scenario: Sending request and check the Promotions element with Name = "Gallery" has a Description that contains the text "2x larger image"
     Given path 'Categories/6327/Details.json'
     And param catalogue = 'false'
 
@@ -37,21 +37,28 @@ Feature: Trial test suite
     {
        for(var i = 0; i < response.Promotions.length; i++)
        {
-         karate.log("i=",i);
-         karate.log("length=",response.Promotions.length);
          if(response.Promotions[i].Name == "Gallery")
          {
-            var stringCheck = JSON.stringify(response.Promotions[i].Description);
-            karate.log("type=",typeof (stringCheck));
-            karate.log("value=",stringCheck);
-            if(stringCheck.includes("Good position in category"))
+            var stringCheck = response.Promotions[i].Description.toString();
+            if(!stringCheck.contains("2x larger image"))
             {
-              karate.log("wrong!");
+              karate.log("Following string doesn't contain expected result: (Actual)" , response.Promotions[i].Description);
+              karate.log("Expected: 2x larger image");
               return false;
             }
+            else if(stringCheck.contains("Gallery"))
+            {
+              karate.log("Expected string \" 2x larger image\" is included");
+              return true;
+            }
          }
+         else if(response.Promotions[i].Name != "Feature Combo")
+         {
+            continue;
+         }
+         else return false;
        }
     }
     """
 
-    And match each response.Promotions[*].Description == '#? isGalleryContainsCorrectContent(_)'
+    And match each response.Promotions[*] == '#? isGalleryContainsCorrectContent(_)'
