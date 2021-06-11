@@ -1,0 +1,25 @@
+20:10:57.015 request:
+1 > GET https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: api.tmsandbox.co.nz
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/11.0.6)
+
+20:10:57.078 response time in milliseconds: 62.07
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Access-Control-Expose-Headers: ETag
+1 < Connection: Keep-Alive
+1 < Content-Type: application/json
+1 < Date: Fri, 11 Jun 2021 08:10:54 GMT
+1 < ETag: "3YP6wjZT4ylP/245DsQBEB8V6+E="
+1 < Vary: Accept-Encoding
+1 < X-Correlation-ID: 7f4726e1-9655-44dd-9d17-bc53d5d6335b
+1 < X-Request-ID: 7368e246-0637-4c88-89a6-828b0557e261
+1 < X-UA-Compatible: IE=Edge
+{"CategoryId":6327,"Name":"Carbon credits","Path":"\/Business-farming-industry\/Carbon-credits","CanListAuctions":true,"CanListClassifieds":true,"CanRelist":true,"LegalNotice":"Compliance Declaration\u000aI confirm that these carbon credits are certified and registered with a carbon credits registry. ","DefaultDuration":14,"AllowedDurations":[2,3,4,5,6,7,10,14],"Fees":{"Bundle":15.0000,"EndDate":0.2500,"Feature":10.0000,"Gallery":2.0000,"Listing":29.0000,"Reserve":0.2500,"Subtitle":0.5500,"TenDays":0.2500,"ListingFeeTiers":[{"MinimumTierPrice":0,"FixedFee":29.00}],"SecondCategory":0.9900},"FreePhotoCount":20,"MaximumPhotoCount":20,"IsFreeToRelist":true,"Promotions":[{"Id":1,"Name":"Basic","Description":"Lowest position in category","Price":0.0000,"MinimumPhotoCount":0},{"Id":2,"Name":"Gallery","Description":"Good position in category","Price":2.0000,"OriginalPrice":2.0000,"MinimumPhotoCount":0},{"Id":3,"Name":"Feature","Description":"Better position in category","Price":10.0000,"OriginalPrice":10.0000,"Recommended":true,"MinimumPhotoCount":0},{"Id":4,"Name":"Feature Combo","Description":"Best position in category \u000aIncludes benefits of Feature \u000aHighlights listing in search results","Price":15.0000,"OriginalPrice":15.0000,"MinimumPhotoCount":0}],"EmbeddedContentOptions":[],"MaximumTitleLength":80,"AreaOfBusiness":1,"DefaultRelistDuration":7}
+
+:80,"AreaOfBusiness":1,"DefaultRelistDuration":7}
+
+
+3:18:56.982 assertion failed: path: $.CanRelist, actual: true, expected: 'true', reason: actual value is not a string

@@ -1,0 +1,37 @@
+20:10:57.092 request:
+1 > GET https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: api.tmsandbox.co.nz
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/11.0.6)
+
+20:10:57.262 response time in milliseconds: 63.44
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Access-Control-Expose-Headers: ETag
+1 < Connection: Keep-Alive
+1 < Content-Type: application/json
+1 < Date: Fri, 11 Jun 2021 08:10:54 GMT
+1 < ETag: "3YP6wjZT4ylP/245DsQBEB8V6+E="
+1 < Vary: Accept-Encoding
+1 < X-Correlation-ID: 43bec50f-7d20-432a-9e9d-734e9d857b4b
+1 < X-Request-ID: 70dbe63d-474b-41ea-aaa5-59ce3e9e6368
+1 < X-UA-Compatible: IE=Edge
+{"CategoryId":6327,"Name":"Carbon credits","Path":"\/Business-farming-industry\/Carbon-credits","CanListAuctions":true,"CanListClassifieds":true,"CanRelist":true,"LegalNotice":"Compliance Declaration\u000aI confirm that these carbon credits are certified and registered with a carbon credits registry. ","DefaultDuration":14,"AllowedDurations":[2,3,4,5,6,7,10,14],"Fees":{"Bundle":15.0000,"EndDate":0.2500,"Feature":10.0000,"Gallery":2.0000,"Listing":29.0000,"Reserve":0.2500,"Subtitle":0.5500,"TenDays":0.2500,"ListingFeeTiers":[{"MinimumTierPrice":0,"FixedFee":29.00}],"SecondCategory":0.9900},"FreePhotoCount":20,"MaximumPhotoCount":20,"IsFreeToRelist":true,"Promotions":[{"Id":1,"Name":"Basic","Description":"Lowest position in category","Price":0.0000,"MinimumPhotoCount":0},{"Id":2,"Name":"Gallery","Description":"Good position in category","Price":2.0000,"OriginalPrice":2.0000,"MinimumPhotoCount":0},{"Id":3,"Name":"Feature","Description":"Better position in category","Price":10.0000,"OriginalPrice":10.0000,"Recommended":true,"MinimumPhotoCount":0},{"Id":4,"Name":"Feature Combo","Description":"Best position in category \u000aIncludes benefits of Feature \u000aHighlights listing in search results","Price":15.0000,"OriginalPrice":15.0000,"MinimumPhotoCount":0}],"EmbeddedContentOptions":[],"MaximumTitleLength":80,"AreaOfBusiness":1,"DefaultRelistDuration":7}
+
+20:10:57.310 i= 0 
+20:10:57.312 length= 4 
+20:10:57.330 i= 1 
+20:10:57.332 length= 4 
+20:10:57.361 type= string 
+20:10:57.363 value= "Good position in category" 
+ength= 4 
+19:23:50.566 assertion failed: path: $[0], actual: 'Lowest position in category', expected: '#? isGalleryContainsCorrectContent(_)', reason: did not evaluate to 'true'
+Id":3,"Name":"Feature","Description":"Better position in category","Price":10.0,"OriginalPrice":10.0,"Recommended":true,"MinimumPhotoCount":0},{"Id":4,"Name":"Feature Combo","Description":"Best position in category \nIncludes benefits of Feature \nHighlights listing in search results","Price":15.0,"OriginalPrice":15.0,"MinimumPhotoCount":0}], expected: '#? isGalleryContainsCorrectContent(_)', reason: did not evaluate to 'true'
+ if(response.Promotions[i].Name == 'Gallery')
+     {
+       return response.Promotions[i].Description;
+     }
+     else{ return false;}
+   }
+}, reason: actual value does not contain expected
