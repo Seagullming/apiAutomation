@@ -1,8 +1,8 @@
-package examples;
+package projects;
 
 import com.intuit.karate.junit5.Karate;
 
-class ExamplesTest {
+class ProjectRunner {
     
     // this will run all *.feature files that exist in sub-directories
     // see https://github.com/intuit/karate#naming-conventions   
