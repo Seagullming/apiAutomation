@@ -37,27 +37,29 @@ Feature: Trial test suite
     {
        for(var i = 0; i < response.Promotions.length; i++)
        {
+         var result = false;
          if(response.Promotions[i].Name == "Gallery")
          {
-            var stringCheck = response.Promotions[i].Description.toString();
+            var stringCheck = response.Promotions[i].Description;
             if(!stringCheck.contains("2x larger image"))
             {
               karate.log("Following string doesn't contain expected result: (Actual)" , response.Promotions[i].Description);
               karate.log("Expected: 2x larger image");
-              return false;
+              result = false;
             }
             else if(stringCheck.contains("2x larger image"))
             {
               karate.log("Expected string \" 2x larger image\" is included");
-              return true;
+              result = true;
             }
          }
          else if(response.Promotions[i].Name != "Gallery")
          {
             continue;
          }
-         else return false;
+         return result;
        }
+
     }
     """
 
