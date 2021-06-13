@@ -4,7 +4,7 @@ Feature: Trial test suite
     * url 'https://api.tmsandbox.co.nz/v1/'
 
   @test:1001
-  Scenario: Sending request to api and the 'Name' field returned in the value of 'Carbon credits'
+  Scenario: The value of 'Name' field in response should be 'Carbon credits'
     Given path 'Categories/6327/Details.json'
     And param catalogue = 'false'
 
@@ -14,7 +14,7 @@ Feature: Trial test suite
     And match response.Name == 'Carbon credits'
 
   @test:1002
-  Scenario: Sending request and check if the boolean value of 'CanRelist' field equal to true
+  Scenario: Boolean value of 'CanRelist' should be returned as true;
     Given path 'Categories/6327/Details.json'
     And param catalogue = 'false'
 
@@ -24,7 +24,7 @@ Feature: Trial test suite
     And match response.CanRelist == true
 
   @test:1003
-  Scenario: Sending request and check the Promotions element with Name = "Gallery" has a Description that contains the text "2x larger image"
+  Scenario: If 'Name' field equals to 'Gallery', '2x larger image' should be included in the value of the field
     Given path 'Categories/6327/Details.json'
     And param catalogue = 'false'
 
@@ -45,11 +45,13 @@ Feature: Trial test suite
             {
               karate.log("Following string doesn't contain expected result: (Actual)" , response.Promotions[i].Description);
               karate.log("Expected: 2x larger image");
+              karate.log("id:",response.Promotions[i].Id);
               result = false;
             }
             else if(stringCheck.contains("2x larger image"))
             {
               karate.log("Expected string \" 2x larger image\" is included");
+              karate.log("id:",response.Promotions[i].Id);
               result = true;
             }
          }
@@ -59,7 +61,6 @@ Feature: Trial test suite
          }
          return result;
        }
-
     }
     """
 
